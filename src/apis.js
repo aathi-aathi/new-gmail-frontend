@@ -58,14 +58,11 @@ const userInformations = async(email)=>{
     const response = await fetch(`${backendURL}/user-info/${email}`)
     return await response.json()
 }
-const setProfile = async(userData)=>{
-    const response = await fetch(`${backendURL}/set-profile`,{
-        method:"POST",
-        body:JSON.stringify(userData),
-        headers:{
-        "Content-Type":"application/json; charset=utf-8"
-    }
-    })
-    return await response.json()
-}
-export {postData,userLogin,forgotPassword,checkOtp,resetpassword,userInformations,setProfile}
+// const setProfile = async(userData)=>{
+//     const response = await fetch(`${backendURL}/set-profile/${userData.email}`,{
+//         method:"POST",
+//         body:userData.profile,
+//     })
+//     return await response.json()
+// }
+export {postData,userLogin,forgotPassword,checkOtp,resetpassword,userInformations}

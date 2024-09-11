@@ -8,7 +8,6 @@ const userSlice=createSlice({
     reducers:{
        getUserData:(state,action)=>{
             state.userData = action.payload
-            console.log(state.userData)
     },
    
 }})

@@ -19,10 +19,14 @@ const Home = ()=>{
         userInfo()
     },[])
     return(
-        <>
+      <div className="w-full overscroll-none">
         <Navbar/>
+      
+       
         <Outlet/>
-        </>
+        
+        
+    </div>
     )
 }
 export default Home;
