@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./navbar"
 import { userInformations } from "../apis";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { jwtDecode } from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../redux/userSlice";
@@ -15,14 +15,14 @@ const Home = ()=>{
       const data= await userInformations(email)
         dispatch(getUserData(data))
     }
+    
     useEffect(()=>{
         userInfo()
     },[])
+  
     return(
       <div className="w-full overscroll-none">
         <Navbar/>
-      
-       
         <Outlet/>
         
         

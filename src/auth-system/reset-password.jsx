@@ -35,7 +35,7 @@ const handleSubmit = async(e)=>{
     
 }
     return(
-        <div className="flex justify-center items-center h-screen bg-slate-100 bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-200 to-indigo-300">
         <div className="rounded h-78 w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
             <h1 className="text-xl font-black text-blue-700 mb-4">Reset Password</h1>
             <form className="w-4/5" onSubmit={handleSubmit}>

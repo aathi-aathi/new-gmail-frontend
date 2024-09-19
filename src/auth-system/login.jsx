@@ -35,7 +35,7 @@ if(data.code == 0){
 }} 
 
     return(
-        <div className="flex justify-center items-center h-screen bg-slate-100 bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-200 to-indigo-300">
         <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
             <h1 className="text-3xl font-black text-blue-700 mt-4 mb-2">WELCOME BACK !</h1>
             {error && <p className="font-bold text-red-700 mb-2 text-center">{error}</p>}
@@ -47,7 +47,7 @@ if(data.code == 0){
                  className=" pl-2 focus:outline-none
                  border rounded block w-full h-9 mb-4
                  placeholder:italic"
-                 type="email" placeholder="Enter your Email..." required/>
+                 type="email" placeholder="Enter your Email or User Name..." required/>
             </label>
             <label>
                  <input 

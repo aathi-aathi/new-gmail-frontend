@@ -23,7 +23,7 @@ const handleSubmit = async(e)=>{
     console.log({email})
 }
     return(
-        <div className="flex justify-center items-center h-screen bg-slate-100 bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-200 to-indigo-300">
       <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
             <h2 className="text-xl text-center font-black text-blue-700 mb-4">Forgot Password</h2>
             {emailError && <p className="font-bold text-red-700 mb-2 text-center">{emailError}</p>}

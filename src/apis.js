@@ -58,6 +58,10 @@ const userInformations = async(email)=>{
     const response = await fetch(`${backendURL}/user-info/${email}`)
     return await response.json()
 }
+const getAllData = async()=>{
+    const response = await fetch(`${backendURL}/all-users`)
+    return await response.json()
+}
 // const setProfile = async(userData)=>{
 //     const response = await fetch(`${backendURL}/set-profile/${userData.email}`,{
 //         method:"POST",
@@ -65,4 +69,4 @@ const userInformations = async(email)=>{
 //     })
 //     return await response.json()
 // }
-export {postData,userLogin,forgotPassword,checkOtp,resetpassword,userInformations}
+export {postData,userLogin,forgotPassword,checkOtp,resetpassword,userInformations,getAllData}

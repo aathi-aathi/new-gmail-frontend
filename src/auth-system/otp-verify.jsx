@@ -43,7 +43,7 @@ const handleSubmit = async(e)=>{
     
 }
     return(
-        <div className="flex justify-center items-center h-screen bg-slate-100 bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-200 to-indigo-300">
       <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
             <h2 className="text-xl text-center font-black text-blue-700 mt-4 mb-2">OTP Verification</h2>
             {otpError && <p className="font-bold text-red-700 mb-2">{otpError}</p>}
