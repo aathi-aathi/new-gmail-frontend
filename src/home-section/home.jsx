@@ -10,9 +10,9 @@ const Home = ()=>{
     const dispatch = useDispatch()
     const token = localStorage.getItem('token')
     const decoded = jwtDecode(token)
-    const email = decoded.email
+    const userName = decoded.userName
     const userInfo = async()=>{
-      const data= await userInformations(email)
+      const data= await userInformations(userName)
         dispatch(getUserData(data))
     }
     

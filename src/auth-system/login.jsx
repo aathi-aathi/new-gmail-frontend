@@ -47,7 +47,7 @@ if(data.code == 0){
                  className=" pl-2 focus:outline-none
                  border rounded block w-full h-9 mb-4
                  placeholder:italic"
-                 type="email" placeholder="Enter your Email or User Name..." required/>
+                 type="email" placeholder="Enter your Email..." required/>
             </label>
             <label>
                  <input 

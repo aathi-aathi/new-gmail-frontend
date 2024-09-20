@@ -25,7 +25,7 @@ const App = () => {
     <Route path='/reset-password/:token' element={<ResetPassword/>}/>
     <Route path='/otp-verify/:token' element={<OTPVerification/>}/>
     <Route path='/reset-verify/:token' element={<ResetVerification/>}/>
-    <Route path='/profile' element={<ProtectedRoute component={<Profile/>}/>}/>
+    <Route path='/profile/:userName' element={<ProtectedRoute component={<Profile/>}/>}/>
     <Route path='/home' element={<ProtectedRoute component={<Home/>}/>}>
     <Route index element={<MessageUI/>}></Route>
     <Route path='/home/chat-box' element={<ChatBox/>}/>

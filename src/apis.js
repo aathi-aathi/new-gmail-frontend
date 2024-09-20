@@ -54,8 +54,8 @@ const resetpassword =async(userData)=>{
     }) 
     return await response.json()
 }
-const userInformations = async(email)=>{
-    const response = await fetch(`${backendURL}/user-info/${email}`)
+const userInformations = async(userName)=>{
+    const response = await fetch(`${backendURL}/user-info/${userName}`)
     return await response.json()
 }
 const getAllData = async()=>{
