@@ -12,7 +12,7 @@ const Navbar = () =>{
             <i className="fa-solid fa-magnifying-glass pl-2 text-blue-500"></i>
             <input type="text" placeholder="Search..." className="focus:outline-none w-4/5"/>
             </label>
-            <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${userInfo.profile}`} className="h-10 w-10 mr-2  rounded-full object-cover bg-white cursor-pointer" onClick={()=>navigate('/profile')}></img>
+            <img src={userInfo.profile} className="h-10 w-10 mr-2  rounded-full object-cover bg-white cursor-pointer" onClick={()=>navigate('/profile')}></img>
         </nav>
     )
 }

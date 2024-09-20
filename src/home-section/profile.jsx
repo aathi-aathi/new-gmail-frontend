@@ -48,13 +48,13 @@ useEffect(()=>{
                 <h1 className="text-xl font-bold  text-blue-600">Profile</h1>
             </div>
             <div className="relative">
-                <img className="h-36 w-36 rounded-full object-cover" src= {`${import.meta.env.VITE_BACKEND_URL}/images/${profileImg}`}/>
+                <img className="h-36 w-36 rounded-full object-cover" src= {profileImg}/>
                 <input className="hidden" id="profileInput" accept="image/*" type="file" onChange={handleChange}/>
                 <label htmlFor='profileInput' className="absolute right-1 bottom-1 bg-slate-100 rounded-full p-2">
                     <i className="fa-solid fa-camera fa-xl text-blue-500"></i>
                 </label>
             </div>
-            <h1 className="font-bold text-xl">{name}</h1>
+            <h1 className="font-bold text-xl hover:animate-bounce">{name}</h1>
             <div className="flex flex-col gap-4 w-11/12 rounded border-2 p-2">
                <div className="flex gap-4 items-center  ">
                 <i className="fa-solid fa-user text-slate-500"></i>

@@ -17,7 +17,7 @@ const MessageUI = () =>{
            {users.map(((user)=>(
             <Link to='/home/chat-box'><div className="h-16 border-b flex items-center justify-between">
             <div className="flex gap-4 ml-2">
-                <img className="h-12 w-12 rounded-full object-cover" src={`${import.meta.env.VITE_BACKEND_URL}/images/${user.profile}`}></img>
+                <img className="h-12 w-12 rounded-full object-cover" src={user.profile}></img>
             <div>
                 <h1 className="font-medium text-lg">{user.userName}</h1>
                 
