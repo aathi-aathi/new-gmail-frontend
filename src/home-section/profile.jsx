@@ -14,12 +14,12 @@ const Profile = ()=>{
     const decoded = jwtDecode(token)
     const email = decoded.email
     
-    const handleChange =(e) =>{
+    const handleChange =async(e) =>{
         if (e.target.files && e.target.files.length > 0) {
            const file = e.target.files[0]
            const formData = new FormData()
            formData.append('file',file) 
-           axios.post(`${import.meta.env.VITE_BACKEND_URL}/set-profile/${email}`,formData) 
+           await axios.post(`${import.meta.env.VITE_BACKEND_URL}/set-profile/${email}`,formData) 
            .then(res=>console.log(res))
            .catch(err=>console.log(err))      
            setRender(render+1)
