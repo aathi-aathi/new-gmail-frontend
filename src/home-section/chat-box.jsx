@@ -34,6 +34,9 @@ const ChatBox = ()=>{
     useEffect(()=>{
         userInfo()
     },[])
+    setTimeout(() => {
+        setCount(count+1)
+    }, 1000);
     useEffect(()=>{
         getMessages()
     },[count])
