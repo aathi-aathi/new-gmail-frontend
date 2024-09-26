@@ -62,11 +62,64 @@ const getAllData = async()=>{
     const response = await fetch(`${backendURL}/all-users`)
     return await response.json()
 }
-// const setProfile = async(userData)=>{
-//     const response = await fetch(`${backendURL}/set-profile/${userData.email}`,{
-//         method:"POST",
-//         body:userData.profile,
-//     })
-//     return await response.json()
-// }
-export {postData,userLogin,forgotPassword,checkOtp,resetpassword,userInformations,getAllData}
+const postFollowData =async(userData)=>{
+    const response = await fetch(`${backendURL}/follow`,{
+        method:"POST",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const getFollowData = async(fromUser,toUser)=>{
+    const response = await fetch(`${backendURL}/follow/${fromUser}`,{
+        headers:{  "user_name": toUser}
+    })
+    return await response.json()  
+}
+const getFollowRequestData = async(userName)=>{
+    const response = await fetch(`${backendURL}/follow-request/${userName}`)
+    return await response.json()  
+}
+const acceptRequestApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/accept-request`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+
+}) 
+    return await response.json()
+}
+const rejectRequestApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/reject-request`,{
+        method:"DELETE",
+        body:JSON.stringify(userData),
+        headers:{
+            "Content-Type":"application/json; charset=utf-8"
+        }
+}) 
+    return await response.json()
+}
+const sendMessageApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/send`,{
+        method:"POST",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const getMessagesApi = async(fromUser,toUser)=>{
+    const response = await fetch(`${backendURL}/send/${fromUser}`,{
+        headers:{  "user_name": toUser}
+    })
+    return await response.json()  
+}
+export {postData,userLogin,forgotPassword,checkOtp,resetpassword,
+    userInformations,getAllData,postFollowData,getFollowData,getFollowRequestData,
+     acceptRequestApi,rejectRequestApi
+    ,sendMessageApi,getMessagesApi}

@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
 import { getAllData } from "../apis";
 import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const MessageUI = () =>{
     const [users,setUsers]=useState([])
+    const token = localStorage.getItem('token')
+    const decoded = jwtDecode(token)
+    const userName = decoded.userName
     const getAllUsers = async() =>{
-      const data =  await getAllData()
-      setUsers(data)
+    //   const data =  await getAllData(userName)
+    //   setUsers(data)
       }
     useEffect(()=>{
       getAllUsers()
     },[])
     return(
-        <div className=" h-screen w-full  overflow-y-auto flex justify-center ">
+        <div className="select-none h-screen w-full  overflow-y-auto flex justify-center ">
             <div className="mt-16 md:mt-20 h-4/5 w-full max-w-screen-sm md:border md:rounded md:shadow-xl">
            {users.map(((user)=>(
             <Link to='/home/chat-box' key={user.email}><div className="h-16 border-b flex items-center justify-between">

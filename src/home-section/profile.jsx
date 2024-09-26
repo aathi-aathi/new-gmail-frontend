@@ -1,6 +1,6 @@
 import {  useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { userInformations } from "../apis";
+import { getFollowData, postFollowData, userInformations } from "../apis";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 const Profile = ()=>{
@@ -12,6 +12,8 @@ const Profile = ()=>{
     const [userEmail,setUserEmail] = useState('')
     const [profileImg,setProfileImg]=useState('')
     const [loading,setLoading]=useState(false)
+    const [follow,setFollow]=useState('Follow')
+    console.log(follow)
     const pathUsename = pathParam.userName
     const token = localStorage.getItem('token')
     const decoded = jwtDecode(token)
@@ -29,12 +31,30 @@ const Profile = ()=>{
            setLoading(false)
     } 
 }
+const handleFollow = async()=>{
+  const data =  await postFollowData({from:user_Name,to:pathUsename})
+  setRender(render+1)
+  
+}
+const getFollow=async()=>{
+   const data =  await getFollowData(user_Name,pathUsename)
+   if(data.status == 'request sent'  ){
+    setFollow('Request sent')
+   }else if(data.status == 'accepted'){
+    setFollow('Following')
+   }else{
+    setFollow('Follow')
+   }
+}
     const userInfo = async()=>{
+        setLoading(true)
         const data= await userInformations(pathUsename)
+        setLoading(false)
         setName(data.name)
         setUserEmail(data.email)
         setProfileImg(data.profile)
         setUserName(data.userName)
+
 }
  const logOut = ()=>{
     window.localStorage.removeItem('isAuthenticate')
@@ -44,8 +64,11 @@ const Profile = ()=>{
 useEffect(()=>{
     userInfo()
 },[render])
+useEffect(()=>{
+    getFollow()
+})
     return(
-        <div className=" flex justify-center md:items-center h-screen w-full">
+        <div className=" flex justify-center md:items-center h-screen w-full select-none">
         <div className="flex h-96 flex-col items-center justify-evenly w-full max-w-96 mt-12 md:shadow-xl hidden:border md:border md:rounded-md ">
             <div className="flex gap-4 items-center absolute top-0  w-full border-b bg-gradient-to-r from-sky-200 to-indigo-300 h-12">
                 <i className="fa fa-arrow-left ml-4 text-blue-600 cursor-pointer" onClick={()=>navigate('/home')}></i>
@@ -60,13 +83,23 @@ useEffect(()=>{
                 </label>}
             </div>
             <h1 className="font-bold text-xl">{name}</h1>
+            <div className="w-11/12 flex gap-2 justify-center">
+            {pathUsename != user_Name && 
+            <button onClick={handleFollow} disabled={follow =='Follow'? false : true} className={` text-white w-3/4 p-1
+             rounded cursor-pointer 
+             ${follow =='Request sent' ? 'bg-slate-400': 'bg-sky-700'}`}>{follow}</button>}
+             {follow=='Following' && <button className="text-white w-3/4 p-1
+             rounded cursor-pointer bg-sky-700" onClick={()=>navigate(`/chat-box/${pathUsename}`)}>Message</button>}
+            </div>
+            
+
             <div className="flex flex-col gap-4 w-11/12 rounded border-2 p-2">
                <div className="flex gap-4 items-center  ">
-                <i className="fa-solid fa-user text-slate-500"></i>
-                <p  className="font-bold text-slate-700">{userName}</p>
+                <i className="fa-solid fa-user text-sky-500"></i>
+                <p  className="font-bold text-slate-700 ">{userName}</p>
               </div>
               <div className="flex gap-4 items-center ">
-              <i className="fa-solid fa-envelope  text-slate-500"></i>
+              <i className="fa-solid fa-envelope   text-sky-500"></i>
                 <p className="font-bold text-slate-700">{userEmail}</p>
               </div>
             </div>
