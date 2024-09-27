@@ -27,11 +27,11 @@ const FollowRequest = ()=>{
     },[count])
     return(
         <div className=" h-screen w-full  overflow-y-auto flex justify-center select-none ">
-            <div className="flex gap-4 items-center absolute top-0  w-full border-b bg-gradient-to-r from-sky-200 to-indigo-300 h-12">
-                <i className="fa fa-arrow-left ml-4 text-blue-600 cursor-pointer" onClick={()=>navigate('/home')}></i>
-                <h1 className="text-xl font-bold  text-blue-600">Follow Requests</h1>
+            <div className="flex gap-4 items-center absolute top-0  w-full border-b bg-gradient-to-r from-teal-400 to-teal-600 h-12">
+                <i className="fa fa-arrow-left ml-4 text-white cursor-pointer" onClick={()=>navigate('/home')}></i>
+                <h1 className="text-xl font-bold  text-white">Follow Requests</h1>
             </div>
-            <div className="mt-16 md:mt-20 h-4/5 w-full max-w-screen-sm md:border md:rounded md:shadow-xl">
+            <div className="max-sm:h-screen md:mt-20 h-4/5 w-full max-w-screen-sm md:border bg-black md:rounded md:shadow-xl">
             {followReq.map((follow)=>(<div className="h-16 border-b flex items-center justify-between">
             <div className="flex gap-4 ml-2">
                 <img className="h-12 w-12 rounded-full object-cover" src={follow.profile}></img>

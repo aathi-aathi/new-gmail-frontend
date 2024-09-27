@@ -39,9 +39,9 @@ const handleSubmit = async(e)=>{
     
 }
     return(
-        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-200 to-indigo-300">
-      <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
-            <h2 className="text-xl text-center font-black text-blue-700 mt-4 mb-2">OTP Verification</h2>
+        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-teal-200 to-teal-500">
+      <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-black shadow-lg" >
+            <h2 className="text-xl text-center font-black text-teal-400 mt-4 mb-2">OTP Verification</h2>
             {otpError && <p className="font-bold text-red-700 mb-2">{otpError}</p>}
             <p className="text-sm text-slate-500 w-4/5 text-center">Enter the OTP you received at
             <strong> {email}</strong></p>
@@ -52,7 +52,7 @@ const handleSubmit = async(e)=>{
                  value={formData.first}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border rounded w-12 h-12  mt-2 text-xl text-center"
+                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12  mt-2 text-xl text-center"
                  type="text" 
                  maxLength='1'
                  name="first" required/>
@@ -62,7 +62,7 @@ const handleSubmit = async(e)=>{
                  value={formData.sec}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border rounded w-12 h-12 mt-2 text-xl text-center"
+                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12 mt-2 text-xl text-center"
                  type="text" 
                  maxLength='1'
                  name="sec" required/>
@@ -72,7 +72,7 @@ const handleSubmit = async(e)=>{
                  value={formData.third}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border rounded w-12 h-12 text-xl mt-2 text-center"
+                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12 text-xl mt-2 text-center"
                  type="text" 
                  maxLength='1'
                  name="third"
@@ -83,15 +83,15 @@ const handleSubmit = async(e)=>{
                  value={formData.fourth}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border rounded w-12 h-12  mt-2 text-xl text-center"
+                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12  mt-2 text-xl text-center"
                  type="text"
                  maxLength='1'
                  name="fourth"  required/>
             </label>
             </div>
-            <button className="flex justify-center bg-blue-700 rounded w-full p-2 text-white hover:bg-blue-600 mb-4 ...">
+            <button className="flex justify-center bg-teal-400 rounded w-full p-2 text-white hover:bg-teal-500 mb-4 ...">
             {loading ? <div className="w-5 h-5 border-4 border-t-transparent 
-            border-blue-500 rounded-full animate-spin" 
+            border-white rounded-full animate-spin" 
             role="status"><span className="sr-only">Loading...</span>
             </div>: 'Verify OTP'}
             </button> 

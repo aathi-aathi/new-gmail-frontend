@@ -15,6 +15,7 @@ import MessageUI from './home-section/msg-ui.jsx';
 import ChatBox from './home-section/chat-box.jsx';
 import FollowRequest from './home-section/follow.jsx';
 
+
 const App = () => {
   return(
     <Provider store={store}>

@@ -119,7 +119,12 @@ const getMessagesApi = async(fromUser,toUser)=>{
     })
     return await response.json()  
 }
+const getChatApi = async(userName)=>{
+    const response = await fetch(`${backendURL}/get-chat/${userName}`)
+    return await response.json()  
+}
+
 export {postData,userLogin,forgotPassword,checkOtp,resetpassword,
     userInformations,getAllData,postFollowData,getFollowData,getFollowRequestData,
      acceptRequestApi,rejectRequestApi
-    ,sendMessageApi,getMessagesApi}
+    ,sendMessageApi,getMessagesApi,getChatApi}

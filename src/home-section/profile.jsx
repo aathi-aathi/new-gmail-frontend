@@ -69,38 +69,38 @@ useEffect(()=>{
 })
     return(
         <div className=" flex justify-center md:items-center h-screen w-full select-none">
-        <div className="flex h-96 flex-col items-center justify-evenly w-full max-w-96 mt-12 md:shadow-xl hidden:border md:border md:rounded-md ">
-            <div className="flex gap-4 items-center absolute top-0  w-full border-b bg-gradient-to-r from-sky-200 to-indigo-300 h-12">
-                <i className="fa fa-arrow-left ml-4 text-blue-600 cursor-pointer" onClick={()=>navigate('/home')}></i>
-                <h1 className="text-xl font-bold  text-blue-600">Profile</h1>
+        <div className="flex h-96 bg-black max-sm:h-full flex-col items-center max-sm:justify-start gap-4 justify-evenly w-full max-w-96 mt-12 md:shadow-xl hidden:border md:border md:rounded-md ">
+            <div className="flex gap-4 items-center absolute top-0  w-full border-b bg-gradient-to-r from-teal-400 to-teal-600 h-12">
+                <i className="fa fa-arrow-left ml-4 text-white cursor-pointer" onClick={()=>navigate('/home')}></i>
+                <h1 className="text-xl font-bold  text-white">Profile</h1>
             </div>
             <div className="relative">
-                <img className={`h-36 w-36 rounded-full object-cover ${loading && 'animate-pulse'}`} 
+                <img className={`mt-4 border border-teal-400 h-36 w-36 rounded-full object-cover ${loading && 'animate-pulse'}`} 
                 src= {profileImg ? profileImg : 'https://cdn-icons-png.flaticon.com/128/3177/3177440.png'}/>
                 <input className="hidden" id="profileInput" accept="image/*" type="file" onChange={handleChange}/>
                 {pathUsename== user_Name &&  <label htmlFor='profileInput' className="absolute right-1 bottom-1 bg-slate-100 rounded-full p-2">
-                    <i className="fa-solid fa-camera fa-xl text-blue-500"></i>
+                    <i className="fa-solid fa-camera fa-xl text-teal-400"></i>
                 </label>}
             </div>
-            <h1 className="font-bold text-xl">{name}</h1>
+            <h1 className="font-bold text-white text-xl">{name}</h1>
             <div className="w-11/12 flex gap-2 justify-center">
             {pathUsename != user_Name && 
             <button onClick={handleFollow} disabled={follow =='Follow'? false : true} className={` text-white w-3/4 p-1
              rounded cursor-pointer 
-             ${follow =='Request sent' ? 'bg-slate-400': 'bg-sky-700'}`}>{follow}</button>}
+             ${follow =='Request sent' ? 'bg-slate-400': 'bg-teal-400'}`}>{follow}</button>}
              {follow=='Following' && <button className="text-white w-3/4 p-1
-             rounded cursor-pointer bg-sky-700" onClick={()=>navigate(`/chat-box/${pathUsename}`)}>Message</button>}
+             rounded cursor-pointer bg-teal-400" onClick={()=>navigate(`/chat-box/${pathUsename}`)}>Message</button>}
             </div>
             
 
-            <div className="flex flex-col gap-4 w-11/12 rounded border-2 p-2">
+            <div className="flex flex-col gap-4 w-11/12 rounded border-teal-400 border-2 p-2">
                <div className="flex gap-4 items-center  ">
-                <i className="fa-solid fa-user text-sky-500"></i>
-                <p  className="font-bold text-slate-700 ">{userName}</p>
+                <i className="fa-solid fa-user text-teal-400"></i>
+                <p  className="font-bold text-white ">{userName}</p>
               </div>
               <div className="flex gap-4 items-center ">
-              <i className="fa-solid fa-envelope   text-sky-500"></i>
-                <p className="font-bold text-slate-700">{userEmail}</p>
+              <i className="fa-solid fa-envelope text-teal-400"></i>
+                <p className="font-bold text-white">{userEmail}</p>
               </div>
             </div>
             {pathUsename== user_Name && <div className="flex gap-2 items-center text-red-600 cursor-pointer hover:text-red-700" onClick={logOut}>
