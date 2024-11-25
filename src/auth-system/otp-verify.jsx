@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { checkOtp } from "../apis";
+import { checkOtp, forgotPassword } from "../apis";
 
 
 const OTPVerification = () =>{
@@ -25,6 +25,10 @@ const handleChange = (e) => {
         [name]: value
     });
 };
+const resentOTP = async(e)=>{
+    e.preventDefault()
+  await forgotPassword({email})
+}
 const handleSubmit = async(e)=>{
     e.preventDefault()
     const otp = formData.first+formData.sec+formData.third+formData.fourth
@@ -35,13 +39,12 @@ const handleSubmit = async(e)=>{
     navigate(`/login`)
    }else{
         setOtpError('Incorrect OTP')
-   }
-    
+   }   
 }
     return(
-        <div className="flex justify-center items-center h-screen bg-gradient-to-r from-teal-200 to-teal-500">
-      <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-black shadow-lg" >
-            <h2 className="text-xl text-center font-black text-teal-400 mt-4 mb-2">OTP Verification</h2>
+        <div className="flex justify-center items-center h-screen font-reem">
+      <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center shadow-lg" >
+      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png"></img>
             {otpError && <p className="font-bold text-red-700 mb-2">{otpError}</p>}
             <p className="text-sm text-slate-500 w-4/5 text-center">Enter the OTP you received at
             <strong> {email}</strong></p>
@@ -52,7 +55,7 @@ const handleSubmit = async(e)=>{
                  value={formData.first}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12  mt-2 text-xl text-center"
+                 border border-blue-600 bg-inherit placeholder:text-sm   rounded w-12 h-12  mt-2 text-xl text-center"
                  type="text" 
                  maxLength='1'
                  name="first" required/>
@@ -62,7 +65,7 @@ const handleSubmit = async(e)=>{
                  value={formData.sec}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12 mt-2 text-xl text-center"
+                 border border-blue-600 bg-inherit placeholder:text-sm  rounded w-12 h-12 mt-2 text-xl text-center"
                  type="text" 
                  maxLength='1'
                  name="sec" required/>
@@ -72,7 +75,7 @@ const handleSubmit = async(e)=>{
                  value={formData.third}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12 text-xl mt-2 text-center"
+                 border border-blue-600 bg-inherit placeholder:text-sm  rounded w-12 h-12 text-xl mt-2 text-center"
                  type="text" 
                  maxLength='1'
                  name="third"
@@ -83,19 +86,20 @@ const handleSubmit = async(e)=>{
                  value={formData.fourth}
                  onChange={handleChange}
                  className=" focus:outline-none
-                 border border-teal-400 bg-inherit placeholder:text-sm placeholder:text-teal-400 text-teal-400 rounded w-12 h-12  mt-2 text-xl text-center"
+                 border border-blue-600 bg-inherit placeholder:text-sm rounded w-12 h-12  mt-2 text-xl text-center"
                  type="text"
                  maxLength='1'
                  name="fourth"  required/>
             </label>
             </div>
-            <button className="flex justify-center bg-teal-400 rounded w-full p-2 text-white hover:bg-teal-500 mb-4 ...">
+            <button className="flex justify-center bg-blue-500 rounded w-full p-2 text-white hover:bg-blue-600 mb-4 ...">
             {loading ? <div className="w-5 h-5 border-4 border-t-transparent 
             border-white rounded-full animate-spin" 
             role="status"><span className="sr-only">Loading...</span>
             </div>: 'Verify OTP'}
             </button> 
             </form>
+            <button className="text-center text-blue-500 mb-2" onClick={(e)=>resentOTP(e)}>Resend</button>
         </div>
         </div>
     )

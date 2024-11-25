@@ -11,9 +11,8 @@ import Profile from './home-section/profile';
 import ProtectedRoute from './auth-system/protectedRoute';
 import { Provider } from 'react-redux';
 import store from './redux/store.js'
-import MessageUI from './home-section/msg-ui.jsx';
-import ChatBox from './home-section/chat-box.jsx';
-import FollowRequest from './home-section/follow.jsx';
+import Inbox from './home-section/Inbox.jsx';
+import Trash from './home-section/Trash.jsx';
 
 
 const App = () => {
@@ -27,11 +26,9 @@ const App = () => {
     <Route path='/reset-password/:token' element={<ResetPassword/>}/>
     <Route path='/otp-verify/:token' element={<OTPVerification/>}/>
     <Route path='/reset-verify/:token' element={<ResetVerification/>}/>
-    <Route path='/profile/:userName' element={<ProtectedRoute component={<Profile/>}/>}/>
-    <Route path='/follow-request' element={<FollowRequest/>}/>
-    <Route path='/chat-box/:userName' element={<ChatBox/>}/>
     <Route path='/home' element={<ProtectedRoute component={<Home/>}/>}>
-    <Route index element={<MessageUI/>}></Route>
+    <Route index element={<Inbox/>}></Route>
+    <Route path='/home/trash' element={<Trash/>}/>
     </Route>
     </Routes>
     </BrowserRouter>

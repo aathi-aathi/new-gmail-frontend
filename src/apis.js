@@ -54,55 +54,15 @@ const resetpassword =async(userData)=>{
     }) 
     return await response.json()
 }
-const userInformations = async(userName)=>{
-    const response = await fetch(`${backendURL}/user-info/${userName}`)
+const userInformations = async(email)=>{
+    const response = await fetch(`${backendURL}/user-info/${email}`)
     return await response.json()
 }
 const getAllData = async()=>{
     const response = await fetch(`${backendURL}/all-users`)
     return await response.json()
 }
-const postFollowData =async(userData)=>{
-    const response = await fetch(`${backendURL}/follow`,{
-        method:"POST",
-        body:JSON.stringify(userData),
-        headers:{
-        "Content-Type":"application/json; charset=utf-8"
-    }
-}) 
-    return await response.json()
-}
-const getFollowData = async(fromUser,toUser)=>{
-    const response = await fetch(`${backendURL}/follow/${fromUser}`,{
-        headers:{  "user_name": toUser}
-    })
-    return await response.json()  
-}
-const getFollowRequestData = async(userName)=>{
-    const response = await fetch(`${backendURL}/follow-request/${userName}`)
-    return await response.json()  
-}
-const acceptRequestApi =async(userData)=>{
-    const response = await fetch(`${backendURL}/accept-request`,{
-        method:"PUT",
-        body:JSON.stringify(userData),
-        headers:{
-        "Content-Type":"application/json; charset=utf-8"
-    }
 
-}) 
-    return await response.json()
-}
-const rejectRequestApi =async(userData)=>{
-    const response = await fetch(`${backendURL}/reject-request`,{
-        method:"DELETE",
-        body:JSON.stringify(userData),
-        headers:{
-            "Content-Type":"application/json; charset=utf-8"
-        }
-}) 
-    return await response.json()
-}
 const sendMessageApi =async(userData)=>{
     const response = await fetch(`${backendURL}/send`,{
         method:"POST",
@@ -119,12 +79,47 @@ const getMessagesApi = async(fromUser,toUser)=>{
     })
     return await response.json()  
 }
-const getChatApi = async(userName)=>{
-    const response = await fetch(`${backendURL}/get-chat/${userName}`)
-    return await response.json()  
+const editInfoApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/edit-info`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
 }
-
-export {postData,userLogin,forgotPassword,checkOtp,resetpassword,
-    userInformations,getAllData,postFollowData,getFollowData,getFollowRequestData,
-     acceptRequestApi,rejectRequestApi
-    ,sendMessageApi,getMessagesApi,getChatApi}
+const getInboxMails = async(email)=>{
+    const response = await fetch(`${backendURL}/inbox/${email}`)
+    return await response.json()
+}
+const getSentMails = async(email)=>{
+    const response = await fetch(`${backendURL}/get-sent/${email}`)
+    return await response.json()
+}
+const deleteInbox =async(id)=>{
+    const response = await fetch(`${backendURL}/inbox`,{
+        method:"POST",
+        body:JSON.stringify(id),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const moveMails =async(id)=>{
+    const response = await fetch(`${backendURL}/move-mail`,{
+        method:"POST",
+        body:JSON.stringify(id),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+export {
+    postData,userLogin,forgotPassword,checkOtp,resetpassword,
+    userInformations,getAllData
+    ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,  deleteInbox,
+    moveMails
+}
