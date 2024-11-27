@@ -30,7 +30,7 @@ const Home = ()=>{
       <div className="w-full overscroll-none bg-violet-50 h-screen">
         <Navbar setToggle={setToggle} toggle={toggle} 
         setOpen={setOpen} setViewProfile={setViewProfile}/>
-        <div className="flex h-4/5 w-full">
+        <div className="flex h-4/5 overflow-none w-full">
            <Sidebar toggle={toggle} setOpen={setOpen} setViewProfile={setViewProfile}/>
          <div className="bg-white h-full w-full rounded-2xl"><Outlet/></div> 
         </div>

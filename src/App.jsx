@@ -7,12 +7,14 @@ import ResetPassword from './auth-system/reset-password';
 import Home from './home-section/home';
 import OTPVerification from './auth-system/otp-verify';
 import ResetVerification from './auth-system/reset-verify';
-import Profile from './home-section/profile';
 import ProtectedRoute from './auth-system/protectedRoute';
 import { Provider } from 'react-redux';
 import store from './redux/store.js'
 import Inbox from './home-section/Inbox.jsx';
 import Trash from './home-section/Trash.jsx';
+import Sent from './home-section/sent.jsx';
+import Star from './home-section/Star.jsx';
+import Draft from './home-section/Draft.jsx';
 
 
 const App = () => {
@@ -29,6 +31,9 @@ const App = () => {
     <Route path='/home' element={<ProtectedRoute component={<Home/>}/>}>
     <Route index element={<Inbox/>}></Route>
     <Route path='/home/trash' element={<Trash/>}/>
+    <Route path='/home/sent' element={<Sent/>}/>
+    <Route path='/home/starred' element={<Star/>}/>
+    <Route path='/home/draft' element={<Draft/>}/>
     </Route>
     </Routes>
     </BrowserRouter>

@@ -37,7 +37,7 @@ const Navbar = ({setToggle,toggle,setViewProfile,setOpen}) =>{
                 <div className="w-5 border border-black mb-1"></div>
                 <div className="w-5 border border-black mb-1"></div>
              </div>
-             <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png"></img>
+             <img className="max-md:hidden" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png"></img>
              </div>
              
             <label className="relative bg-indigo-100 h-12 w-4/5  max-w-3xl flex items-center

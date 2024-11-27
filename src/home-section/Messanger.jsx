@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { sendMessageApi } from '../apis'
+import { sendDraftApi, sendMessageApi } from '../apis'
 
 const Messanger = ({setOpen,userEmail}) => {
   const [email,setEmail] = useState('')
@@ -9,11 +9,15 @@ const Messanger = ({setOpen,userEmail}) => {
       await sendMessageApi({from:userEmail,to:email,subject:subject,message:message})
       setOpen(false)
   }
+  const draftMail = async()=>{
+    await sendDraftApi({from:userEmail,to:email,subject:subject,message:message})
+    setOpen(false)
+  }
   return (
     <div className='w-96 h-72 fixed bottom-10 right-10 rounded-md 
     shadow-md bg-white font-reem' style={{width:'500px',height:'400px'}}>
-     <div onClick={()=>setOpen(false)} className='flex p-2 justify-between bg-violet-100 cursor-pointer rounded-t-md'><p>New Message</p>
-          <i className="fa-solid fa-xmark "></i>
+     <div onClick={draftMail} className='flex p-2 justify-between bg-violet-100 cursor-pointer rounded-t-md'><p>New Message</p>
+          <i className="fa-solid fa-xmark"></i>
      </div>  
      <form className='flex flex-col h-4/5'>
       <input

@@ -6,27 +6,24 @@ const Profile = ({setViewProfile,userEmail})=>{
     const navigate= useNavigate()
     const [render,setRender]=useState(0)
     const [name,setName]=useState('')
-    const [email,setEmail] = useState('')
     const [profileImg,setProfileImg]=useState('')
     const [loading,setLoading]=useState(false)
     const handleChange =async(e) =>{
+        
         if (e.target.files && e.target.files.length > 0) {
             setLoading(true)
            const file = e.target.files[0]
            const formData = new FormData()
            formData.append('file',file) 
-           await axios.post(`${import.meta.env.VITE_BACKEND_URL}/set-profile/${user_Name}`,formData) 
+           await axios.post(`${import.meta.env.VITE_BACKEND_URL}/set-profile/${userEmail}`,formData) 
            .then(res=>console.log(res))
-           .catch(err=>console.log(err))      
+           .catch(err=>console.log(err)) 
+           setLoading(false)     
            setRender(render+1)
-           setLoading(false)
     } 
 }
-
     const userInfo = async()=>{
-        setLoading(true)
         const data= await userInformations(userEmail)
-        setLoading(false)
         setName(data.name)
         setProfileImg(data.profile)
 }
@@ -45,7 +42,18 @@ useEffect(()=>{
             <div className="flex items-center justify-between p-1 w-full ">
               <div className="w-full flex justify-center"><p className="text center">{userEmail}</p></div>  
             <i onClick={()=>setViewProfile(false)} className="fa-solid fa-xmark cursor-pointer"></i></div>
-            <img className="h-24 w-24 rounded-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRXxfn1j1vKFy8yJeBGl2AS6Dcah-lKgHofg&s"/>
+           <div className="relative">
+           <input type="file" id="photo" accept="/image*" onChange={handleChange} className="hidden" />
+           <img className="h-24 w-24 rounded-full object-cover" 
+            src={profileImg}/>
+          <label htmlFor="photo">
+          {loading ? <div className="w-5 h-5 border-4 border-t-transparent 
+            border-slate-800 rounded-full animate-spin absolute right-0 bottom-1" 
+            role="status"><span className="sr-only">Loading...</span>
+            </div> :
+            <i  className="fa-solid fa-camera p-2 rounded-full bg-indigo-300 absolute right-0 bottom-1 cursor-pointer"></i>}
+            </label>
+           </div>
             <h1 className="text-2xl">{`Hii! `+name}</h1>
             <button onClick={logOut} className="flex gap-1 items-center mb-5">
             <i className="fa-solid fa-right-from-bracket" ></i>

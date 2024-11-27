@@ -62,9 +62,18 @@ const getAllData = async()=>{
     const response = await fetch(`${backendURL}/all-users`)
     return await response.json()
 }
-
 const sendMessageApi =async(userData)=>{
-    const response = await fetch(`${backendURL}/send`,{
+    const response = await fetch(`${backendURL}/mail-send`,{
+        method:"POST",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const sendDraftApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/draft`,{
         method:"POST",
         body:JSON.stringify(userData),
         headers:{
@@ -94,23 +103,47 @@ const getInboxMails = async(email)=>{
     return await response.json()
 }
 const getSentMails = async(email)=>{
-    const response = await fetch(`${backendURL}/get-sent/${email}`)
+    const response = await fetch(`${backendURL}/sent/${email}`)
     return await response.json()
 }
-const deleteInbox =async(id)=>{
-    const response = await fetch(`${backendURL}/inbox`,{
-        method:"POST",
-        body:JSON.stringify(id),
+const getDraftMails = async(email)=>{
+    const response = await fetch(`${backendURL}/draft/${email}`)
+    return await response.json()
+}
+const trashMails =async(userData)=>{
+    const response = await fetch(`${backendURL}/trash`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
         headers:{
         "Content-Type":"application/json; charset=utf-8"
     }
 }) 
     return await response.json()
 }
-const moveMails =async(id)=>{
+const moveMails =async(userData)=>{
     const response = await fetch(`${backendURL}/move-mail`,{
-        method:"POST",
-        body:JSON.stringify(id),
+        method:"PUT",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const setStarApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/set-star`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
+const unStarApi =async(userData)=>{
+    const response = await fetch(`${backendURL}/unstar`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
         headers:{
         "Content-Type":"application/json; charset=utf-8"
     }
@@ -120,6 +153,6 @@ const moveMails =async(id)=>{
 export {
     postData,userLogin,forgotPassword,checkOtp,resetpassword,
     userInformations,getAllData
-    ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,  deleteInbox,
-    moveMails
+    ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,
+    moveMails,setStarApi,unStarApi, trashMails, getDraftMails,sendDraftApi
 }
