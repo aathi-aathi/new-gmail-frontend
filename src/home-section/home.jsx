@@ -9,10 +9,11 @@ import Sidebar from "./side-bar";
 import Messanger from "./Messanger";
 import Profile from "./profile";
 
-const Home = ()=>{
+const Home = ({search,setSearch})=>{
     const [toggle,setToggle]=useState(false)
     const [open,setOpen] =useState(false)
     const [viewProfile,setViewProfile]=useState(false)
+    
     const dispatch = useDispatch()
     const token = localStorage.getItem('token')
     const decoded = jwtDecode(token)
@@ -29,8 +30,8 @@ const Home = ()=>{
     return(
       <div className="w-full overscroll-none bg-violet-50 h-screen">
         <Navbar setToggle={setToggle} toggle={toggle} 
-        setOpen={setOpen} setViewProfile={setViewProfile}/>
-        <div className="flex h-4/5 overflow-none w-full">
+        setOpen={setOpen} setViewProfile={setViewProfile} search={search} setSearch={setSearch}/>
+        <div className="flex h-full overflow-none w-full fixed">
            <Sidebar toggle={toggle} setOpen={setOpen} setViewProfile={setViewProfile}/>
          <div className="bg-white h-full w-full rounded-2xl"><Outlet/></div> 
         </div>

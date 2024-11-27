@@ -56,8 +56,8 @@ useEffect(()=>{
            </div>
             <h1 className="text-2xl">{`Hii! `+name}</h1>
             <button onClick={logOut} className="flex gap-1 items-center mb-5">
-            <i className="fa-solid fa-right-from-bracket" ></i>
-            <p>Logout</p>
+            <i className="fa-solid fa-right-from-bracket text-red-600" ></i>
+            <p className="text-red-600">Logout</p>
             </button>
        </div>
     )

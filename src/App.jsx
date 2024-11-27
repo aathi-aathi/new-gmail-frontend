@@ -15,9 +15,11 @@ import Trash from './home-section/Trash.jsx';
 import Sent from './home-section/sent.jsx';
 import Star from './home-section/Star.jsx';
 import Draft from './home-section/Draft.jsx';
+import { useState } from 'react';
 
 
 const App = () => {
+  const [search,setSearch] = useState('')
   return(
     <Provider store={store}>
     <BrowserRouter>
@@ -28,10 +30,10 @@ const App = () => {
     <Route path='/reset-password/:token' element={<ResetPassword/>}/>
     <Route path='/otp-verify/:token' element={<OTPVerification/>}/>
     <Route path='/reset-verify/:token' element={<ResetVerification/>}/>
-    <Route path='/home' element={<ProtectedRoute component={<Home/>}/>}>
-    <Route index element={<Inbox/>}></Route>
+    <Route path='/home' element={<ProtectedRoute component={<Home search={search} setSearch={setSearch}/>}/>}>
+    <Route index element={<Inbox search={search}/>}></Route>
     <Route path='/home/trash' element={<Trash/>}/>
-    <Route path='/home/sent' element={<Sent/>}/>
+    <Route path='/home/sent' element={<Sent search={search}/>}/>
     <Route path='/home/starred' element={<Star/>}/>
     <Route path='/home/draft' element={<Draft/>}/>
     </Route>

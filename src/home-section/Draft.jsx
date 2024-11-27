@@ -16,15 +16,15 @@ const Draft = () => {
     getDraft()
   },[render])
   return (
-    <div className='font-reem'>
+    <div className='font-reem max-md:ml-16'>
     <div className='m-3'><i className="fa-solid fa-rotate-right cursor-pointer" onClick={()=>setRender(render+1)}></i></div>
    <div>
        {draft.map((mail)=>(<div className='h-10 border-b bg-slate-100 flex items-center' key={mail.id}>
          <div className='w-1/5  pl-2 flex gap-2 items-center'>
           <p className='text-red-500'>Draft</p></div>
          <div className='w-8/12 flex items-center'>
-         <strong>{mail.subject} -</strong>
-         <p>{mail.message}</p>
+         <strong>{mail.subject} </strong>
+         <p className='max-md:hidden'>-{mail.message}</p>
          </div>
          <div className='flex items-center gap-2 '>
          <p className='text-sm'>{mail.date}</p>

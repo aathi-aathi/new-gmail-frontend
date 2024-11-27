@@ -14,8 +14,9 @@ const Messanger = ({setOpen,userEmail}) => {
     setOpen(false)
   }
   return (
-    <div className='w-96 h-72 fixed bottom-10 right-10 rounded-md 
-    shadow-md bg-white font-reem' style={{width:'500px',height:'400px'}}>
+
+    <div className='w-96 h-96 fixed bottom-10 right-10 rounded-md max-md:w-4/5 p
+    shadow-md bg-white font-reem' >
      <div onClick={draftMail} className='flex p-2 justify-between bg-violet-100 cursor-pointer rounded-t-md'><p>New Message</p>
           <i className="fa-solid fa-xmark"></i>
      </div>  

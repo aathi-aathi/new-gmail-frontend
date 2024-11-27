@@ -34,15 +34,15 @@ const Sidebar = ({toggle,setOpen,setViewProfile}) => {
         setViewProfile(false)
     }
   return(
-    <div className= {`h-fit bg-violet-50 ${toggle ? 'w-16' :'w-64'} font-reem`}>
-        <button onClick={composeview} className={`flex gap-2 items-center h-14 rounded-2xl ml-1 ${toggle ?'w-3/4' : 'w-32'} 
+    <div className= {`h-full bg-violet-50 ${!toggle ? 'w-16' :'w-64'} font-reem max-md:fixed `}>
+        <button onClick={composeview} className={`flex gap-2 items-center h-14 rounded-2xl ml-1 ${!toggle ?'w-3/4' : 'w-32'} 
          justify-center bg-sky-200 hover:shadow-md` }>
-        <i className="fa-solid fa-pencil"></i>{!toggle && 'Compose'}</button>
+        <i className="fa-solid fa-pencil"></i>{toggle && 'Compose'}</button>
         <div className='mt-5'>
             {list.map((item,index)=>(
                 <Link to={item.path} key={index} className='flex gap-2 items-center hover:bg-violet-100 rounded-r-2xl pl-5 h-8'>
                     <i className={item.icon}></i>
-                    {!toggle && <p>{item.name}</p>}
+                    {toggle && <p>{item.name}</p>}
                 </Link>
             ))}
         </div>
