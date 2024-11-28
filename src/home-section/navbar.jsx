@@ -1,15 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { getAllData } from "../apis";
 import { jwtDecode } from "jwt-decode";
 
 const Navbar = ({setToggle,toggle,setViewProfile,setOpen,search,setSearch}) =>{
     const userInfo = useSelector((state)=> state.users.userData)
-    const [searchUsers,setSearchUsers]=useState([])
-    const token = localStorage.getItem('token')
-    const decoded = jwtDecode(token)
-    const user_Name = decoded.userName
   function toggling(){
     if(toggle){
         setToggle(false)

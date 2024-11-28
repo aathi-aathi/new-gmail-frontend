@@ -28,11 +28,12 @@ const Star = () => {
     <div className='font-reem max-md:ml-16'>
         <div className='m-3'><i className="fa-solid fa-rotate-right cursor-pointer" onClick={()=>setRender(render+1)}></i></div>
        <div>
-           {allMails.filter((mail)=>( !mail.isDeleted && mail.isStarred)).map((mail)=>(<div className='h-10 border-b bg-slate-100 flex items-center' key={mail.id}>
+           {allMails.filter((mail)=>( !mail.isDeleted && mail.isStarred)).map((mail)=>(
+            <div className='h-10 border-b bg-slate-100 hover:bg-slate-200 flex items-center' key={mail.id}>
              <div className='w-1/5  pl-2 flex gap-2 items-center'>
              <i className='fa-solid fa-star text-yellow-400 cursor-pointer' onClick={()=>setStarFucntion(mail.id)}></i>
               <p className=''>{mail.senderName ? mail.senderName : 'Me'}</p></div>
-             <div className='w-8/12 flex items-center'>
+             <div className='w-8/12 flex items-center max-md:justify-center'>
              <strong>{mail.subject} </strong>
              <p className='max-md:hidden'> -{mail.message}</p>
              </div>

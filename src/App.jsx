@@ -16,6 +16,8 @@ import Sent from './home-section/sent.jsx';
 import Star from './home-section/Star.jsx';
 import Draft from './home-section/Draft.jsx';
 import { useState } from 'react';
+import SingleInbox from './home-section/inbox-page.jsx';
+import SingleSent from './home-section/sent-page.jsx';
 
 
 const App = () => {
@@ -36,6 +38,8 @@ const App = () => {
     <Route path='/home/sent' element={<Sent search={search}/>}/>
     <Route path='/home/starred' element={<Star/>}/>
     <Route path='/home/draft' element={<Draft/>}/>
+    <Route path='/home/inbox-page/:id' element={<SingleInbox/>}/>
+    <Route path='/home/sent-page/:id' element={<SingleSent/>}/>
     </Route>
     </Routes>
     </BrowserRouter>

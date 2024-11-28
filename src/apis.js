@@ -58,10 +58,6 @@ const userInformations = async(email)=>{
     const response = await fetch(`${backendURL}/user-info/${email}`)
     return await response.json()
 }
-const getAllData = async()=>{
-    const response = await fetch(`${backendURL}/all-users`)
-    return await response.json()
-}
 const sendMessageApi =async(userData)=>{
     const response = await fetch(`${backendURL}/mail-send`,{
         method:"POST",
@@ -150,9 +146,19 @@ const unStarApi =async(userData)=>{
 }) 
     return await response.json()
 }
+const deleteMail =async(userData)=>{
+    const response = await fetch(`${backendURL}/delete-mail`,{
+        method:"PUT",
+        body:JSON.stringify(userData),
+        headers:{
+        "Content-Type":"application/json; charset=utf-8"
+    }
+}) 
+    return await response.json()
+}
 export {
     postData,userLogin,forgotPassword,checkOtp,resetpassword,
-    userInformations,getAllData
+    userInformations 
     ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,
-    moveMails,setStarApi,unStarApi, trashMails, getDraftMails,sendDraftApi
+    moveMails,setStarApi,unStarApi, trashMails, getDraftMails,sendDraftApi,deleteMail
 }

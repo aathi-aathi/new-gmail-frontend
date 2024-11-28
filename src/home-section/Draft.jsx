@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import React, { useEffect, useState } from 'react'
-import { getDraftMails } from '../apis'
+import { deleteMail, getDraftMails } from '../apis'
 
 const Draft = () => {
     const [draft,setDraft] =useState([])
@@ -12,6 +12,10 @@ const Draft = () => {
    const data=  await getDraftMails(userEmail)
    setDraft(data)
   }
+  const deleted = async(id)=>{
+    await deleteMail({userEmail,id})
+    setRender(render+1)
+  }
   useEffect(()=>{
     getDraft()
   },[render])
@@ -19,10 +23,10 @@ const Draft = () => {
     <div className='font-reem max-md:ml-16'>
     <div className='m-3'><i className="fa-solid fa-rotate-right cursor-pointer" onClick={()=>setRender(render+1)}></i></div>
    <div>
-       {draft.map((mail)=>(<div className='h-10 border-b bg-slate-100 flex items-center' key={mail.id}>
+       {draft.map((mail)=>(<div className='h-10 border-b bg-slate-100 hover:bg-slate-200 flex items-center' key={mail.id}>
          <div className='w-1/5  pl-2 flex gap-2 items-center'>
           <p className='text-red-500'>Draft</p></div>
-         <div className='w-8/12 flex items-center'>
+         <div className='w-8/12 flex items-center max-md:justify-center'>
          <strong>{mail.subject} </strong>
          <p className='max-md:hidden'>-{mail.message}</p>
          </div>
