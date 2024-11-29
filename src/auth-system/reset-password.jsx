@@ -31,8 +31,7 @@ const handleSubmit = async(e)=>{
         navigate('/login')
     }else{
         setPasswordError("Password doesn't match")
-    }
-    
+    }   
 }
     return(
         <div className="flex justify-center items-center h-screen font-reem">

@@ -23,7 +23,6 @@ const handleCheck= (e)=>{
 }
 const handleSubmit = async(e)=>{
     e.preventDefault()
-    
     if(password === rePassword){
         setLoading(true)
        const data =  await postData({name,email,password})
@@ -35,8 +34,7 @@ const handleSubmit = async(e)=>{
         }
     }else{
         setPasswordError("Password doesn't match")
-    }
-    
+    }  
 }
     return(
         <div className="flex justify-center items-center h-screen font-reem">
@@ -85,7 +83,6 @@ const handleSubmit = async(e)=>{
                 <label className="flex gap-1"><input type='checkbox' checked={isChecked} onChange={handleCheck} className="cursor-pointer"/>
                 <span className="text-sm text-black">Show Password</span></label>
             </div>
-           
             <button className="flex justify-center bg-red-700 rounded w-full p-2 text-white hover:bg-red-800 mb-2 ...">
             {loading ? <div className="w-5 h-5 border-4 border-t-transparent 
             border-white rounded-full animate-spin" 

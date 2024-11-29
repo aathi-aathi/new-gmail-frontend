@@ -1,8 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import React, { useEffect, useState } from 'react'
 import {   deleteMail, getInboxMails, getSentMails, moveMails } from '../apis'
-import { useNavigate } from 'react-router-dom'
-
 const Trash = () => {
     const [allMails,setAllMails]=useState([]) 
   const [render,setRender]=useState(0)
@@ -43,9 +41,9 @@ const Trash = () => {
                <i className="fa-regular fa-trash-can cursor-pointer" onClick={()=>deleted(mail.id)}></i>
                </div>
              </div>))}
+             <p className='text-sm text-center'>Term . Privacy . Programme Policy</p>
           </div>
         </div> 
     )
 }
-
 export default Trash

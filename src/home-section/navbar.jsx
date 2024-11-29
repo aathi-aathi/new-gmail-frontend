@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import { jwtDecode } from "jwt-decode";
-
 const Navbar = ({setToggle,toggle,setViewProfile,setOpen,search,setSearch}) =>{
     const userInfo = useSelector((state)=> state.users.userData)
   function toggling(){
@@ -18,7 +15,7 @@ const Navbar = ({setToggle,toggle,setViewProfile,setOpen,search,setSearch}) =>{
     return(
         <nav className="select-none h-16 bg-violet-50 flex items-center justify-between gap-2 font-reem  w-full top-0 left-0 z-10">
              <div className="flex gap-1 items-center">
-<div onClick={toggling} className="p-3 ml-2 hover:bg-slate-200 rounded-full">
+<div onClick={toggling} className="p-3 ml-2 hover:bg-slate-200 rounded-full cursor-pointer">
                 <div className="w-5 border border-black mb-1"></div>
                 <div className="w-5 border border-black mb-1"></div>
                 <div className="w-5 border border-black mb-1"></div>

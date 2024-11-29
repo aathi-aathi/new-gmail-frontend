@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { forgotPassword } from "../apis";
 import { useNavigate } from "react-router-dom";
-
-
 const ForgotPassword = () =>{
 const [email,setEmail]=useState('')
 const [emailError,setEamilError]=useState('')
@@ -18,9 +16,6 @@ const handleSubmit = async(e)=>{
     }else{
         setEamilError("We can't find your email")
     }
-
-  
-    console.log({email})
 }
     return(
         <div className="flex justify-center items-center h-screen font-reem">
@@ -38,8 +33,7 @@ const handleSubmit = async(e)=>{
                  "
                  type="email" placeholder="Enter your Email..." required/>
                  {emailError && <p className="text-sm text-red-700">{emailError}</p>}
-            </label>
-            
+            </label> 
             <button className="flex justify-center bg-blue-500 mb-5 rounded w-full p-2 text-white hover:bg-blue-600 mb-2 ...">
             {loading ? <div className="w-5 h-5 border-4 border-t-transparent 
             border-white rounded-full animate-spin" 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getInboxMails, getSentMails, trashMails, unStarApi } from '../apis'
 import { jwtDecode } from 'jwt-decode'
-
 const Star = () => {
   const [allMails,setAllMails] = useState([])
   const [render,setRender] = useState(0)
@@ -47,5 +46,4 @@ const Star = () => {
       </div>
     )
 }
-
 export default Star;

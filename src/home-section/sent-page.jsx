@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getSentMails } from "../apis";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-
 const SingleSent = ()=>{
     const[inbox,setInbox]=useState([])
 const pathParams = useParams()
@@ -18,8 +17,7 @@ const sentMail = async()=>{
     sentMail()
    },[])
     return(
-        <div className="bg-slate-50 font-reem h-full max-md:ml-16" >
-           
+        <div className="bg-slate-50 font-reem h-full max-md:ml-16" >  
         {inbox.filter((mailData)=>pathParams.id==mailData.id).map((mailData)=>(
                 <div key={mailData.id}> 
                 <div className="flex items-center justify-between ml-2 mr-5">

@@ -2,7 +2,6 @@ import { jwtDecode } from 'jwt-decode'
 import React, { useEffect, useState } from 'react'
 import { getSentMails, setStarApi, trashMails, unStarApi } from '../apis'
 import { useNavigate } from 'react-router-dom'
-
 const Sent = ({search}) => {
     const [sent,setSent]=useState([])
     const [render,setRender]=useState(0)
@@ -54,5 +53,4 @@ const setStarFucntion = async(id,isStarred)=>{
     </div>
   )
 }
-
 export default Sent

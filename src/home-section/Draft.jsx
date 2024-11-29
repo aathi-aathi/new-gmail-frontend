@@ -1,7 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import React, { useEffect, useState } from 'react'
 import { deleteMail, getDraftMails } from '../apis'
-
 const Draft = () => {
     const [draft,setDraft] =useState([])
     const [render,setRender] = useState(0)
@@ -40,5 +39,4 @@ const Draft = () => {
   </div>
   )
 }
-
 export default Draft

@@ -8,12 +8,10 @@ import { getUserData } from "../redux/userSlice";
 import Sidebar from "./side-bar";
 import Messanger from "./Messanger";
 import Profile from "./profile";
-
 const Home = ({search,setSearch})=>{
     const [toggle,setToggle]=useState(false)
     const [open,setOpen] =useState(false)
     const [viewProfile,setViewProfile]=useState(false)
-    
     const dispatch = useDispatch()
     const token = localStorage.getItem('token')
     const decoded = jwtDecode(token)
@@ -21,12 +19,10 @@ const Home = ({search,setSearch})=>{
     const userInfo = async()=>{
       const data= await userInformations(userEmail)
         dispatch(getUserData(data))
-    }
-    
+    }  
     useEffect(()=>{
         userInfo()
     },[])
-  
     return(
       <div className="w-full overscroll-none bg-violet-50 h-screen">
         <Navbar setToggle={setToggle} toggle={toggle} 

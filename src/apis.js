@@ -158,7 +158,6 @@ const deleteMail =async(userData)=>{
 }
 export {
     postData,userLogin,forgotPassword,checkOtp,resetpassword,
-    userInformations 
-    ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,
+    userInformations ,sendMessageApi,getMessagesApi,editInfoApi,getInboxMails,getSentMails,
     moveMails,setStarApi,unStarApi, trashMails, getDraftMails,sendDraftApi,deleteMail
 }

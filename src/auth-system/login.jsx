@@ -32,7 +32,6 @@ const handleSubmit = async(e)=>{
         navigate('/home') 
     }
 } 
-
     return(
         <div className="flex justify-center items-center h-screen font-reem">
             <div className="rounded h-fit w-11/12 max-w-96 flex flex-col justify-center items-center bg-white shadow-lg" >
@@ -55,7 +54,6 @@ const handleSubmit = async(e)=>{
                         border border-slate-500 bg-inherit placeholder:text-sm placeholder:text-slate-400 text-black rounded block w-full h-9 mb-2"
                         type={passType} placeholder="Enter your Password..." required/>
                     </label>
-           
             <div className="flex justify-between  mb-4">
                 <label className="flex gap-1"><input type='checkbox' checked={isChecked} onChange={handleCheck} className="cursor-pointer"/>
                 <span className="text-sm text-black">Show Password</span></label>

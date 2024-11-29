@@ -22,7 +22,6 @@ const Sidebar = ({toggle,setOpen,setViewProfile}) => {
             path:"/home/draft",
             icon:"fa-regular fa-note-sticky"
         },
-    
         {
             name:"Trash",
             path:"/home/trash",
@@ -49,5 +48,4 @@ const Sidebar = ({toggle,setOpen,setViewProfile}) => {
     </div>
   )
 }
-
 export default Sidebar;

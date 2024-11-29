@@ -9,7 +9,6 @@ const Profile = ({setViewProfile,userEmail})=>{
     const [profileImg,setProfileImg]=useState('')
     const [loading,setLoading]=useState(false)
     const handleChange =async(e) =>{
-        
         if (e.target.files && e.target.files.length > 0) {
             setLoading(true)
            const file = e.target.files[0]
@@ -27,7 +26,6 @@ const Profile = ({setViewProfile,userEmail})=>{
         setName(data.name)
         setProfileImg(data.profile)
 }
-
  const logOut = ()=>{
     window.localStorage.removeItem('isAuthenticate')
     window.localStorage.removeItem('token')
