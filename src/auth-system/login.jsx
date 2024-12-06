@@ -29,7 +29,7 @@ const handleSubmit = async(e)=>{
     }else{
         window.localStorage.setItem('token',data.token)
         window.localStorage.setItem('isAuthenticate',true)
-        navigate('/home') 
+        navigate('/') 
     }
 } 
     return(
@@ -66,7 +66,7 @@ const handleSubmit = async(e)=>{
             </div>: 'Login'}
             </button> 
              </form>
-            <p className="text-sm mb-4 text-black">Don't have an account?<Link className="text-sm text-blue-500" to='/'>Sign Up</Link></p>
+            <p className="text-sm mb-4 text-black">Don't have an account?<Link className="text-sm text-blue-500" to='/register'>Sign Up</Link></p>
         </div>
         </div>
     )

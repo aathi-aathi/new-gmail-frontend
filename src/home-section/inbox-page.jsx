@@ -21,7 +21,7 @@ const inboxMail = async()=>{
            
         {inbox.filter((mailData)=>pathParams.id==mailData.id).map((mailData)=>(
                 <div key={mailData.id}> 
-                <div className="flex items-center justify-between ml-2 mr-5"> <i className="fa-solid fa-arrow-left cursor-pointer" onClick={()=>navigate("/home")}></i>
+                <div className="flex items-center justify-between ml-2 mr-5"> <i className="fa-solid fa-arrow-left cursor-pointer" onClick={()=>navigate("/")}></i>
                  <p >{mailData.date}</p>
                 </div>
                 

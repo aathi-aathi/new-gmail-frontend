@@ -4,27 +4,27 @@ const Sidebar = ({toggle,setOpen,setViewProfile}) => {
     const list =[
         {
             name:"Inbox",
-            path:"/home",
+            path:"/",
             icon:"fa-solid fa-inbox text-dark"
         },
         {
             name:"Starred",
-            path:"/home/starred",
+            path:"/starred",
             icon:"fa-regular fa-star"
         },
         {
             name:"Sent",
-            path:"/home/sent",
+            path:"/sent",
             icon:"fa-solid fa-paper-plane text-dark"
         },
         {
             name:"Draft",
-            path:"/home/draft",
+            path:"/draft",
             icon:"fa-regular fa-note-sticky"
         },
         {
             name:"Trash",
-            path:"/home/trash",
+            path:"/trash",
             icon:"trash fa-solid fa-trash text-dark"
         },
     ]
@@ -33,15 +33,15 @@ const Sidebar = ({toggle,setOpen,setViewProfile}) => {
         setViewProfile(false)
     }
   return(
-    <div className= {`h-full bg-violet-50 ${!toggle ? 'w-16' :'w-64'} font-reem max-md:fixed `}>
-        <button onClick={composeview} className={`flex gap-2 items-center h-14 rounded-2xl ml-1 ${!toggle ?'w-3/4' : 'w-32'} 
+    <div className= {`h-full bg-violet-50 ${!toggle ? 'w-16' :'w-64'} font-reem max-md:fixed duration-300`}>
+        <button onClick={composeview} className={`flex gap-2 items-center  h-14 rounded-2xl ml-1 ${!toggle ?'w-3/4' : 'w-32'} 
          justify-center bg-sky-200 hover:shadow-md` }>
         <i className="fa-solid fa-pencil"></i>{toggle && 'Compose'}</button>
         <div className='mt-5'>
             {list.map((item,index)=>(
                 <Link to={item.path} key={index} className='flex gap-2 items-center hover:bg-violet-100 rounded-r-2xl pl-5 h-8'>
-                    <i className={item.icon}></i>
-                    {toggle && <p>{item.name}</p>}
+                    <i className={item.icon }></i>
+                    <p className={`${!toggle && 'scale-0'}`}>{item.name}</p>
                 </Link>
             ))}
         </div>

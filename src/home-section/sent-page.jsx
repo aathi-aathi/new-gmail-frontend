@@ -21,7 +21,7 @@ const sentMail = async()=>{
         {inbox.filter((mailData)=>pathParams.id==mailData.id).map((mailData)=>(
                 <div key={mailData.id}> 
                 <div className="flex items-center justify-between ml-2 mr-5">
-                <i className="fa-solid fa-arrow-left cursor-pointer" onClick={()=>navigate("/home")}></i>
+                <i className="fa-solid fa-arrow-left cursor-pointer" onClick={()=>navigate("/")}></i>
                 <p>{mailData.date}</p>
                 </div>
                 <h1 className="text-2xl  bg-violet-100 p-1 font-bold">{mailData.subject}</h1>

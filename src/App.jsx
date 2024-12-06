@@ -27,19 +27,19 @@ const App = () => {
     <BrowserRouter>
     <Routes>
     <Route path='/login' element={<Login/>}/>
-    <Route path='/' element={<Register/>}/>
+    <Route path='/register' element={<Register/>}/>
     <Route path='/forgot-password' element={<ForgotPassword/>}/>
     <Route path='/reset-password/:token' element={<ResetPassword/>}/>
     <Route path='/otp-verify/:token' element={<OTPVerification/>}/>
     <Route path='/reset-verify/:token' element={<ResetVerification/>}/>
-    <Route path='/home' element={<ProtectedRoute component={<Home search={search} setSearch={setSearch}/>}/>}>
+    <Route path='/' element={<ProtectedRoute component={<Home search={search} setSearch={setSearch}/>}/>}>
     <Route index element={<Inbox search={search}/>}></Route>
-    <Route path='/home/trash' element={<Trash/>}/>
-    <Route path='/home/sent' element={<Sent search={search}/>}/>
-    <Route path='/home/starred' element={<Star/>}/>
-    <Route path='/home/draft' element={<Draft/>}/>
-    <Route path='/home/inbox-page/:id' element={<SingleInbox/>}/>
-    <Route path='/home/sent-page/:id' element={<SingleSent/>}/>
+    <Route path='/trash' element={<Trash/>}/>
+    <Route path='/sent' element={<Sent search={search}/>}/>
+    <Route path='/starred' element={<Star/>}/>
+    <Route path='/draft' element={<Draft/>}/>
+    <Route path='/inbox-page/:id' element={<SingleInbox/>}/>
+    <Route path='/sent-page/:id' element={<SingleSent/>}/>
     </Route>
     </Routes>
     </BrowserRouter>

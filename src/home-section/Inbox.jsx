@@ -39,7 +39,7 @@ const Inbox = ({search}) => {
            <i className={`${mail.isStarred ? 'fa-solid fa-star text-yellow-400'  : 'fa-regular fa-star'} cursor-pointer`} onClick={()=>setStarFucntion(mail.id,mail.isStarred)}></i>
            <img className='h-8 w-8 rounded-full object-cover flex-none max-md:hidden' src={mail.senderImg}/> 
             <p className=''>{mail.senderName}</p></div>
-           <div className='w-8/12 flex items-center max-md:justify-center cursor-pointer' onClick={()=>navigate(`/home/inbox-page/${mail.id}`)}>
+           <div className='w-8/12 flex items-center max-md:justify-center cursor-pointer' onClick={()=>navigate(`/inbox-page/${mail.id}`)}>
            <strong>{mail.subject} </strong>
            <p className='max-md:hidden'>-{mail.message}</p>
            </div>

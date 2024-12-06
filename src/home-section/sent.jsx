@@ -39,7 +39,7 @@ const setStarFucntion = async(id,isStarred)=>{
            <div className='w-1/5  pl-2 flex gap-2 items-center'>
            <i className={`${mail.isStarred ? 'fa-solid fa-star text-yellow-400 ' : 'fa-regular fa-star'} cursor-pointer`} onClick={()=>setStarFucntion(mail.id,mail.isStarred)}></i>
            <p className=''>Me</p></div>
-           <div className='w-8/12 flex items-center max-md:justify-center cursor-pointer' onClick={()=>navigate(`/home/sent-page/${mail.id}`)}>
+           <div className='w-8/12 flex items-center max-md:justify-center cursor-pointer' onClick={()=>navigate(`/sent-page/${mail.id}`)}>
            <strong>{mail.subject} </strong>
            <p className='max-md:hidden'>- {mail.message}</p>
            </div>
